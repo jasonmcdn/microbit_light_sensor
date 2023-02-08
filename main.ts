@@ -1,14 +1,16 @@
 input.onButtonPressed(Button.A, function () {
     pins.digitalWritePin(DigitalPin.P0, 1)
-    control.waitMicros(20)
-    Pushed_A = 1
+    control.waitMicros(6000)
     Light = envirobit.getLight()
     Red = envirobit.getRed()
     Green = envirobit.getGreen()
     Blue = envirobit.getBlue()
     pins.digitalWritePin(DigitalPin.P0, 0)
+    control.waitMicros(20)
     basic.showIcon(IconNames.Yes)
-    control.waitMicros(400)
+    control.waitMicros(500)
+    Pushed_A = 1
+    envirobit.setLEDs(envirobit.OnOff.Off)
 })
 input.onButtonPressed(Button.B, function () {
     if (Pushed_A == 1) {
@@ -18,7 +20,7 @@ input.onButtonPressed(Button.B, function () {
         basic.showNumber(Green)
         basic.showString("B:")
         basic.showNumber(Blue)
-        basic.showString("Light:")
+        basic.showString("L:")
         basic.showNumber(Light)
     } else {
         basic.showString("A")
