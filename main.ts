@@ -18,6 +18,8 @@ input.onButtonPressed(Button.B, function () {
         basic.showNumber(Green)
         basic.showString("B:")
         basic.showNumber(Blue)
+        basic.showString("Light:")
+        basic.showNumber(Light)
     } else {
         basic.showString("A")
         basic.showLeds(`
@@ -27,6 +29,7 @@ input.onButtonPressed(Button.B, function () {
             . # . . .
             . . # . .
             `)
+        control.waitMicros(400)
     }
 })
 let Blue = 0
@@ -34,14 +37,17 @@ let Green = 0
 let Red = 0
 let Light = 0
 let Pushed_A = 0
-basic.showIcon(IconNames.Happy)
+basic.showIcon(IconNames.Heart)
 Pushed_A = 0
 Light = 0
 Red = 0
 Green = 0
 Blue = 0
 pins.digitalWritePin(DigitalPin.P0, 0)
+control.waitMicros(400)
 basic.forever(function () {
     basic.showIcon(IconNames.Happy)
+    basic.pause(1000)
+    basic.clearScreen()
     basic.pause(5000)
 })
