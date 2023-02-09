@@ -1,16 +1,16 @@
 input.onButtonPressed(Button.A, function () {
+    envirobit.setColourIntegrationTime(24)
     pins.digitalWritePin(DigitalPin.P0, 1)
-    control.waitMicros(6000)
+    control.waitMicros(400)
     Light = envirobit.getLight()
     Red = envirobit.getRed()
     Green = envirobit.getGreen()
     Blue = envirobit.getBlue()
-    pins.digitalWritePin(DigitalPin.P0, 0)
     control.waitMicros(20)
     basic.showIcon(IconNames.Yes)
     control.waitMicros(500)
     Pushed_A = 1
-    envirobit.setLEDs(envirobit.OnOff.Off)
+    pins.digitalWritePin(DigitalPin.P0, 0)
 })
 input.onButtonPressed(Button.B, function () {
     if (Pushed_A == 1) {
